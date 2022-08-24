@@ -47,6 +47,7 @@ var data = [
 
 export default function Navbar() {
 const [menudata, setMenuData] = useState([])
+const [show, setShow] = useState(false)
 
 useEffect(()=>{
 axios.get(`https://immense-sea-94845.herokuapp.com/menu`)
@@ -88,20 +89,21 @@ axios.get(`https://immense-sea-94845.herokuapp.com/menu`)
 
 
 
-        <div className={styles.loginSection}>
+        <div onClick={()=>setShow(!show)} className={styles.loginSection}>
             <p>Hi! Sign in</p>
             <h5>MY FITNESS <IoMdArrowDropdown/> </h5>
 
-            <div className={styles.dropdownlogin}>
+           {
+           show &&
+           <div className={styles.dropdownlogin}>
                 <h5>JOIN FOR FREE!</h5>
                 <p>Join for free start tracking your workout get support from other fitness blender and more!</p>
                 
                 <Buttons  b={"#4296CB"}>JOIN</Buttons>
                 <Buttons  b={"#212432"} >SIGN IN</Buttons>
-
-                
-
             </div>
+
+           }
 
 
         </div>
