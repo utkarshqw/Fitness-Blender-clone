@@ -2,48 +2,18 @@ import styles from "./Navigation.module.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 import {AiOutlineSearch} from "react-icons/ai"
 import {MdOutlineShoppingBag} from "react-icons/md"
-import { Button, ChakraProvider } from '@chakra-ui/react';
+
 import Buttons from "./Button";
-import {Link, NavLink} from "react-router-dom"
+import {Link, Navigate, NavLink, useNavigate} from "react-router-dom"
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios"
+import { useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
-var data = [
-  {
-    name: "WORKOUT",
-    links: [{ link: "WORKOUT VIDEOS" }, { link: "CUSTOM WORKOUTS" },],
-    drop:true
-  },
-  {
-    name: "PRODUCTS",
-    links: [{ link: "WORKOUT PROGRAMS" }, { link: "MEAL PLAN" },{ link: "PILOT PROGRAMS" },{ link: "ROUTINES" },],
-    drop:true
-  },
-  {
-    name: "HEALTHY"+" "+"LIVING",
-    links: [{ link: "EXPERT ARTICLE" }, { link: "HEALTHY RECIPES" },{ link: "WELLNESS VIDEOS" }],
-    drop:true
-  },
-  {
-    name: "COMMUNITY",
-    links: [{ link: "COMMUNITY" }, { link: "BLOG" },{ link: "WHAT'S NEW" }],
-    drop:true
-  },
-  {
-    name: "ABOUT",
-    links: [{ link: "ABOUT" }, { link: "CAREERS" },{ link: "TUTORIALS" },{link:"OUR TEAM"}],
-    drop:true
-  },
-  {
-    name:"STORE",
-    drop:false
-  },
-  {
-    name:"MEMBERSHIP",
-    drop:false
-  }
-];
+
+
+
 
 export default function Navbar() {
 const [menudata, setMenuData] = useState([])
@@ -56,15 +26,24 @@ axios.get(`https://immense-sea-94845.herokuapp.com/menu`)
 })
 
 },[])
+const navigate = useNavigate()
 
+const handlegotologin = () =>{
+  navigate("/")
+}
+
+const {con,logs} = useContext(AppContext)
 
   return (
     <>
       <div className={styles.navContainer}>
         <img
+          onClick={handlegotologin}
           src="https://smartinwi.com/wp-content/uploads/2020/09/fitness-blender.jpg"
           alt="logo"
         />
+      
+    
 
         <div className={styles.menuContainer}>
           {menudata?.map((elem) => (
@@ -90,7 +69,8 @@ axios.get(`https://immense-sea-94845.herokuapp.com/menu`)
 
 
         <div onClick={()=>setShow(!show)} className={styles.loginSection}>
-            <p>Hi! Sign in</p>
+           { !con.isAuth && <p>Hi! Sign in</p> }
+           { con.isAuth && <p>Hi! Evan</p> }
             <h5>MY FITNESS <IoMdArrowDropdown/> </h5>
 
            {
@@ -100,7 +80,7 @@ axios.get(`https://immense-sea-94845.herokuapp.com/menu`)
                 <p>Join for free start tracking your workout get support from other fitness blender and more!</p>
                 
                 <Buttons  b={"#4296CB"}>JOIN</Buttons>
-                <Buttons  b={"#212432"} >SIGN IN</Buttons>
+                <Buttons  b={"#212432"} ><Link style={{textDecoration:"none",color:"white"}} to="/login">SIGN IN</Link></Buttons>
             </div>
 
            }
