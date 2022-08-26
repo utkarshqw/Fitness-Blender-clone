@@ -1,0 +1,50 @@
+.ProductCard{
+
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    
+}
+
+.pagination{
+    background-color: #4296C3;
+    border: none;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    
+}
+
+.sortSearch{
+    width: 80%;
+    margin: auto;
+    height: 60px;
+    /* border: 1px solid gray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sortSearch > select {
+
+    height: 35px;
+}
+
+.sortSearch > input {
+    height:30px;
+    width:300px;
+}
+.sortSearch > button {
+    background-color: #4296C3;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 35px;
+    margin: 5px;
+    border-radius: 2px;
+    margin-left: -5px;
+}

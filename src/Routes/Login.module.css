@@ -1,0 +1,36 @@
+
+
+.loginContainer{
+
+    width: 60%;
+    height: 550px;
+    /* border: 1px solid black; */
+    margin: auto;
+}
+
+
+.loginform > input{
+
+    display: block;
+    
+
+}
+.loginform > input {
+    width: 250px;
+    margin: 10px;
+    height: 35px;
+}
+.loginform > input:nth-child(3){
+
+    background-color: #4296CB;
+    border: 1px solid white;
+    width: 260px;
+}
+
+
+.form{
+    /* border: 1px solid red; */
+    width: 280px;
+    margin: auto;
+    
+}

@@ -1,0 +1,60 @@
+
+.firstBanner{
+    height: 550px;
+    width: 100%;
+    border: 1px solid gray;
+    display: flex;
+    background-color: #4296cb;
+    color: white;
+}
+
+.firstBanner > div {
+    
+    height: 100%;
+    width: 60%;
+    /* border: 1px solid red; */
+
+}
+.firstBanner>div:nth-child(1){
+    /* padding: 50px; */
+    text-align: left;
+}
+.firstBanner >div:nth-child(2) > img {
+    height: 100%;
+}
+.feelgreat{
+    width: 50%;
+    /* border: 2px solid green; */
+    margin: 120px;
+    
+}
+.secondBanner{
+
+    height: 550px;
+    width: 100%;
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-image: url("https://cloudfront.fitnessblender.com/assets/img/homepage/community-1440.webp");
+    background-size: cover;
+    padding-top: 10px;
+    
+}
+.secondBanner > div:nth-child(1){
+    /* border: 1px solid black; */
+    height: auto;
+    width: 40%;
+    margin: auto;
+    
+    
+}
+.secondBanner > div > p:nth-child(1){
+
+    font-size: 30px;
+    
+}
+
+.secondBanner > div > p:nth-child(4){
+
+    color: #4296cb;
+}
